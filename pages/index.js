@@ -22,32 +22,19 @@ const [merger, setMerger] = useState([]);
 const [symbol, setSymbol] = useState([]);
 const [index, setIndex] = useState([]);
 const [isOpen, setIsOpen] = useState(false);
- const togglePopup = () => {
-    setIsOpen(!isOpen);
-  }
-//ecee7649eece4dfc986d8f441dbe5af1; api key for newsapi.org
-//https://newsapi.org/v2/top-headlines?sources=techcrunch&apiKey=ecee7649eece4dfc986d8f441dbe5af1
-//https://newsapi.org/v2/everything?domains=wsj.com&apiKey=ecee7649eece4dfc986d8f441dbe5af1
-//https://newsapi.org/v2/everything?q=tesla&from=2021-04-19&sortBy=publishedAt&apiKey=ecee7649eece4dfc986d8f441dbe5af1
-//https://finnhub.io/api/v1/index/constituents?symbol=^GSPC&token=c0u4t6v48v6qqphtsng0
-useEffect(() => {axios.get('https://finnhub.io/api/v1/index/constituents?symbol=^GSPC&token=c0u4t6v48v6qqphtsng0').then(res => {setIndex(res.data);});}, []);
-//'https://finnhub.io/api/v1/stock/symbol?exchange=US&mic=XNYS&token=c0u4t6v48v6qqphtsng0'
-useEffect(() => {axios.get('https://finnhub.io/api/v1/stock/symbol?exchange=US&token=c0u4t6v48v6qqphtsng0').then(res => {setSymbol(res.data);});}, []);
-//'https://finnhub.io/api/v1/stock/symbol?exchange=US&token=c0u4t6v48v6qqphtsng0' (not finished)
-useEffect(() => {axios.get('https://finnhub.io/api/v1/news?category=crypto&token=c0u4t6v48v6qqphtsng0').then(res => {setCrypto(res.data);});}, []);
-useEffect(() => {axios.get('https://finnhub.io/api/v1/news?category=merger&token=c0u4t6v48v6qqphtsng0').then(res => {setMerger(res.data);});}, []);
-useEffect(() => {axios.get('https://finnhub.io/api/v1/news?category=forex&token=c0u4t6v48v6qqphtsng0').then(res => {setCandle(res.data);});}, []);
-useEffect(() => {axios.get('https://finnhub.io/api/v1/news?category=general&token=c0u4t6v48v6qqphtsng0').then(res => {setNews(res.data);});}, []);
+useEffect(() => {axios.get('https://finnhub.io/api/v1/index/constituents?symbol=^GSPC&token=API_KEY').then(res => {setIndex(res.data);});}, []);
+useEffect(() => {axios.get('https://finnhub.io/api/v1/stock/symbol?exchange=US&token=API_KEY').then(res => {setSymbol(res.data);});}, []);
+useEffect(() => {axios.get('https://finnhub.io/api/v1/news?category=crypto&token=API_KEY').then(res => {setCrypto(res.data);});}, []);
+useEffect(() => {axios.get('https://finnhub.io/api/v1/news?category=merger&token=API_KEY').then(res => {setMerger(res.data);});}, []);
+useEffect(() => {axios.get('https://finnhub.io/api/v1/news?category=forex&token=API_KEY').then(res => {setCandle(res.data);});}, []);
+useEffect(() => {axios.get('https://finnhub.io/api/v1/news?category=general&token=API_KEY').then(res => {setNews(res.data);});}, []);
 useEffect(() => {axios.get('https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=1000000&page=1&sparkline=false').then(res => {setCoins(res.data);});}, []);
   const handleChange = e => {setSearch(e.target.value);}
   const filteredCoins = coins.filter(coin =>coin.name.toLowerCase().includes(search.toLowerCase()));
-  //const ticker = coins.filter(coin.name.toUpperCase())
  const filterNews = News.filter(News => News.category);
  const filterEarnings = candle.filter(candle => candle.category);
  const cryptoNews = crypto.filter(crypto => crypto.category);
  const mergerNews = merger.filter(merger => merger.category);
- //const orgSymbol = symbol.filter(symbol => symbol);
- //const indexNew = index.filter(index => index.symbol);
   return (
    <div>
      <Header/>
@@ -146,9 +133,6 @@ useEffect(() => {axios.get('https://api.coingecko.com/api/v3/coins/markets?vs_cu
           </div>
           <div >
           </div>
-        <head>
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3485523512580483" crossOrigin="anonymous"></script>
-        </head>
         </div>
         
       </main>
