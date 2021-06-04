@@ -1,0 +1,27 @@
+
+@media (max-width:600px){
+    .Box-shift {
+        width: 80%;
+        height:80%;
+    }
+}
+.Background{
+    display:center;
+    text-align: center;
+    min-height: 100vh;
+    padding: 0 0.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color:rgb(18, 20, 46);
+    color:white;
+}
+.More-Background{
+    min-height: 91.7vh;
+    display: flex;
+    flex-direction: column;
+    padding:1%;
+    background-color:rgb(18, 20, 46);
+    color:white;
+}
